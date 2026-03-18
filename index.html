@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIFLE | Tienda de Ropa</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="bg__overlay" aria-hidden="true"></div>
+
+    <div class="app" id="app">
+      <div class="app__frame">
+        <header class="app__header">
+          <div class="brand" aria-label="RIFLE" >
+            <span class="brand__mark">RIFLE</span>
+          </div>
+          <nav class="nav" aria-label="Navegación principal">
+            <a class="nav__link is-hidden" href="#dashboard" data-nav="dashboard">Dashboard</a>
+            <a class="nav__link is-hidden" href="#sales" data-nav="sales">Registro de ventas</a>
+            <button class="nav__btn is-hidden" type="button" data-action="logout">Cerrar sesión</button>
+          </nav>
+        </header>
+
+        <main class="app__main">
+          <!-- AUTH -->
+          <section class="view view--auth" id="view-auth" data-view="login">
+            <div class="shell auth">
+              <aside class="auth__aside">
+                <div class="auth__badge">
+                  <span class="auth__badge-dot" aria-hidden="true"></span>
+                  <span data-auth-badge>Bienvenido a RIFLE</span>
+                </div>
+                <h1 class="auth__title" data-auth-title>Donde cada prenda define tu estilo y cada detalle cuenta.</h1>
+              </aside>
+              <div class="auth__panel">
+                <!-- Login -->
+                <div class="panel" data-auth-panel="login">
+                  <h2 class="panel__title">Iniciar sesión</h2>
+                  <p class="panel__hint">Ingresa tus credenciales para continuar.</p>
+                  <div class="alert alert--error is-hidden" data-msg="login"></div>
+
+                  <form class="form" data-form="login" novalidate>
+                    <div class="field">
+                      <label for="login-user">Usuario</label>
+                      <input id="login-user" name="user" autocomplete="username" placeholder="Tu usuario" required />
+                    </div>
+                    <div class="field">
+                      <label for="login-pass">Contraseña</label>
+                      <input id="login-pass" name="pass" type="password" autocomplete="current-password" placeholder="••••••••" required />
+                    </div>
+                    <label class="checkline">
+                      <input type="checkbox" name="remember" />
+                      <span>Mantener sesión iniciada</span>
+                    </label>
+                    <button class="btn btn--primary" type="submit">Iniciar sesión</button>
+
+                    <div class="links">
+                      <a class="link" href="#recover" data-auth-link="recover">¿Has olvidado tu contraseña?</a>
+                      <div class="muted">
+                        ¿No tienes cuenta? <a class="link" href="#register" data-auth-link="register">Crear cuenta</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Registro -->
+                <div class="panel is-hidden" data-auth-panel="register">
+                  <h2 class="panel__title">Crear cuenta</h2>
+                  <p class="panel__hint">Regístrate para usar el sistema (demo local).</p>
+                  <div class="alert alert--error is-hidden" data-msg="register"></div>
+                  <div class="alert alert--success is-hidden" data-ok="register"></div>
+
+                  <form class="form" data-form="register" novalidate>
+                    <div class="field">
+                      <label for="reg-user">Usuario</label>
+                      <input id="reg-user" name="user" autocomplete="username" placeholder="Elige un usuario" required />
+                    </div>
+                    <div class="field">
+                      <label for="reg-pass">Contraseña</label>
+                      <input id="reg-pass" name="pass" type="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres" required />
+                    </div>
+                    <div class="field">
+                      <label for="reg-phone">Teléfono</label>
+                      <input id="reg-phone" name="phone" inputmode="tel" placeholder="Ej: 3001234567" required />
+                    </div>
+                    <label class="checkline">
+                      <input type="checkbox" name="terms" />
+                      <span>Acepto términos y condiciones</span>
+                    </label>
+
+                    <button class="btn btn--primary" type="submit">Crear cuenta</button>
+                    <button class="btn btn--ghost" type="button" data-auth-link="login">Volver a login</button>
+                  </form>
+                </div>
+
+                <!-- Recuperar -->
+                <div class="panel is-hidden" data-auth-panel="recover">
+                  <h2 class="panel__title">Recuperar contraseña</h2>
+                  <p class="panel__hint">Ingresa tu usuario y te confirmamos el envío (simulado).</p>
+                  <div class="alert alert--error is-hidden" data-msg="recover"></div>
+                  <div class="alert alert--success is-hidden" data-ok="recover"></div>
+
+                  <form class="form" data-form="recover" novalidate>
+                    <div class="field">
+                      <label for="rec-user">Usuario</label>
+                      <input id="rec-user" name="user" autocomplete="username" placeholder="Tu usuario" required />
+                    </div>
+                    <button class="btn btn--primary" type="submit">Enviar</button>
+                    <button class="btn btn--ghost" type="button" data-auth-link="login">Volver a login</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- DASHBOARD -->
+          <section class="view is-hidden" id="view-dashboard" data-view="dashboard">
+            <div class="shell page">
+              <div class="page__head">
+                <h2 class="page__title">Dashboard</h2>
+                <p class="page__hint">Métricas simuladas para la tienda <strong>RIFLE</strong>.</p>
+                <div class="page__actions">
+                  <button class="btn btn--primary" type="button" data-nav="sales">Ir a registro de ventas</button>
+                </div>
+              </div>
+
+              <div class="cards">
+                <article class="card">
+                  <p class="card__label">Ventas del día</p>
+                  <p class="card__value" data-metric="today">$0</p>
+                </article>
+                <article class="card">
+                  <p class="card__label">Número de ventas</p>
+                  <p class="card__value" data-metric="count">0</p>
+                </article>
+                <article class="card">
+                  <p class="card__label">Producto más vendido</p>
+                  <p class="card__value card__value--small" data-metric="top">-</p>
+                </article>
+              </div>
+
+              <p class="footnote">
+                Estas métricas se calculan usando las ventas guardadas localmente en el navegador.
+              </p>
+            </div>
+          </section>
+
+          <!-- REGISTRO DE VENTAS -->
+          <section class="view is-hidden" id="view-sales" data-view="sales">
+            <div class="shell page">
+              <div class="page__head">
+                <h2 class="page__title">Registro de ventas</h2>
+                <p class="page__hint">Registra ventas y calcula el total automáticamente.</p>
+                <div class="page__actions">
+                  <button class="btn btn--ghost" type="button" data-nav="dashboard">Volver al dashboard</button>
+                </div>
+              </div>
+
+              <div class="grid">
+                <div>
+                  <div class="alert alert--error is-hidden" data-msg="sales"></div>
+                  <div class="alert alert--success is-hidden" data-ok="sales"></div>
+
+                  <form class="form" data-form="sales" novalidate>
+                    <div class="field">
+                      <label for="sale-advisor">Asesor</label>
+                      <select id="sale-advisor" name="advisor" required></select>
+                    </div>
+                    <div class="field">
+                      <label for="sale-date">Fecha</label>
+                      <input id="sale-date" name="date" type="date" required />
+                    </div>
+                    <div class="field">
+                      <label for="sale-local">Local</label>
+                      <select id="sale-local" name="local" required></select>
+                    </div>
+                    <div class="field">
+                      <label for="sale-product">Producto</label>
+                      <select id="sale-product" name="product" required></select>
+                    </div>
+                    <div class="field">
+                      <label for="sale-qty">Cantidad</label>
+                      <input id="sale-qty" name="qty" type="number" min="1" step="1" value="1" required />
+                    </div>
+                    <div class="field">
+                      <label for="sale-total">Total</label>
+                      <input id="sale-total" name="total" type="text" readonly />
+                    </div>
+                    <button class="btn btn--primary" type="submit">Registrar venta</button>
+                  </form>
+                </div>
+
+                <div>
+                  <h3 class="subhead">Últimas ventas</h3>
+                  <div class="tableWrap">
+                    <table class="table" aria-label="Listado de ventas">
+                      <thead>
+                        <tr>
+                          <th>Fecha</th>
+                          <th>Asesor</th>
+                          <th>Producto</th>
+                          <th>Cant.</th>
+                          <th>Total</th>
+                        </tr>
+                      </thead>
+                      <tbody data-sales-table></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <p class="footnote">
+                Validación: el producto debe existir en el array de productos en <code>/js/app.js</code>.
+              </p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="./js/app.js" defer></script>
+  </body>
+</html>
