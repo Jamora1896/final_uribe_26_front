@@ -139,7 +139,22 @@
                   <p class="card__label">Producto más vendido</p>
                   <p class="card__value card__value--small" data-metric="top">-</p>
                 </article>
+                <article class="card">
+                  <p class="card__label">Ventas por talla</p>
+                  <img src="assets/img/ventas_por_talla.png" class="card__icon" alt="ventas por talla" />
+                </article>
+                <article class="card">
+                  <p class="card__label">Ventas por vendedor</p>
+                  <img src="assets/img/ventas_por_vendedor_pie.png" class="card__icon" alt="ventas por vendedor" />
+                </article>
+                <article class="card">
+                  <p class="card__label">Ventas por mes</p>
+                  <img src="assets/img/ventas_por_mes.png" class="card__icon" alt="ventas por mes" />
+                </article>
               </div>
+
+
+
 
               <p class="footnote">
                 Estas métricas se calculan usando las ventas guardadas localmente en el navegador.
@@ -165,7 +180,7 @@
 
                   <form class="form" data-form="sales" novalidate>
                     <div class="field">
-                      <label for="sale-advisor">Asesor</label>
+                      <label for="sale-advisor">Vendedor</label>
                       <select id="sale-advisor" name="advisor" required></select>
                     </div>
                     <div class="field">
@@ -199,7 +214,7 @@
                       <thead>
                         <tr>
                           <th>Fecha</th>
-                          <th>Asesor</th>
+                          <th>Vendedor</th>
                           <th>Producto</th>
                           <th>Cant.</th>
                           <th>Total</th>
